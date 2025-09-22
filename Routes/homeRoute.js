@@ -1,6 +1,6 @@
 const express = require("express");
 //Importa a classe HomeController
-const HomeController = require("../Controllers/homeController");
+const HomeController = require("../controllers/homeController");
 
 //Cria um "sub-servidor" de rotas usando o Router do Express.
 //Esse router vai gerenciar apenas as rotas relacionadas à Home.

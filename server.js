@@ -4,8 +4,8 @@ const express = require('express');
 //(função que roda entre req e res) usado para gerenciar layouts no EJS
 const expressEjsLayout = require('express-ejs-layouts');
 //Importa todas as rotas configuradas em homeRoute (que usam a ControllerHome)
-const routerHome = require("./Routes/homeRoute");
-const routerUsuario = require("./Routes/usuarioRoute");
+const routerHome = require("./routes/homeRoute");
+const routerUsuario = require("./routes/usuarioRoute");
 //Cria uma instância (molde, classe) do servidor usando o express
 const server = express();
 
@@ -15,7 +15,7 @@ server.set("view engine", 'ejs');
 //Libera a pasta "Public" para o usuário acessar arquivos estáticos direto no navegador
 //(css, imagens, js, pdf, etc.), sem precisar de rota/controller.
 //Exemplo: /style.css → busca Public/style.css
-server.use(express.static('Public'));
+server.use(express.static('public'));
 
 //Define layout.ejs como o layout padrão da aplicação
 //Todas as páginas terão seus conteúdos inseridos no <%- body %> do layout
