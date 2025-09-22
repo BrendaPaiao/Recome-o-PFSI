@@ -4,7 +4,8 @@ const express = require('express');
 //(função que roda entre req e res) usado para gerenciar layouts no EJS
 const expressEjsLayout = require('express-ejs-layouts');
 //Importa todas as rotas configuradas em homeRoute (que usam a ControllerHome)
-const routerHome = require("../routes/homeRoute");
+const routerHome = require("./Routes/homeRoute");
+const routerUsuario = require("./Routes/usuarioRoute");
 //Cria uma instância (molde, classe) do servidor usando o express
 const server = express();
 
@@ -30,6 +31,8 @@ server.use(express.urlencoded({extended: true}));
 //Conecta as rotas da Home. Por estar em "/", é a página inicial.
 //Tudo que começar com "/" será tratado por routerHome
 server.use("/", routerHome);
+//Tudo que começar com "/usuario" será tratado por routerHome
+server.use("/usuario", routerUsuario);
 
 //O método listen faz o servidor ficar escutando uma porta específica (5000 nesse caso). Assim que o servidor for iniciado, será executada a função anônima (sem nome), fazendo uma ação ser executada, como a mensagem de sucesso do servidor em funcionamento no terminal, para a confirmação de que tudo ocorreu de forma correta.
 server.listen(5000, function() {
