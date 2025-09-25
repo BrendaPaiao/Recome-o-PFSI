@@ -78,3 +78,5 @@ Erros registrados:
 1. As pastas devem ter todas as letras minúsculas.
 2. Erro de sintaxe na usuárioRoute na exportação.
 3. Erro ao iníciar por falta da instalação do myslq2.
+4. O botão de cadastrar não estava funcionando. Causa: Esqueci de importar o arquivo do JS na view cadastrar.
+5. Falta do "server.use(express.json());" no server.js (deve ficar em cima das rotas, mas nesse caso, nem estava no arquivo server.js).

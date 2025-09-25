@@ -22,7 +22,7 @@ class UsuarioController {
     async cadastrar(req, res) {
         console.log(req.body);
 
-        //Como estará no corpo do formulário de cadastro. Exemplo: "<input type="text" name="nome">"
+        //Como estará no corpo do formulário de cadastro. Exemplo: "<input type="text" id="nome">"
         let nome = req.body.nome;
         let email = req.body.email;
         let senha = req.body.senha; 

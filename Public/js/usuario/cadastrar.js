@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function gravar() {
 
-        const nome = document.getElementById("Nome");
-        const email = document.getElementById("Email");
-        const senha = document.getElementById("Senha");
+        const nome = document.getElementById("nome");
+        const email = document.getElementById("email");
+        const senha = document.getElementById("senha");
         const perfil = document.getElementById("selPerfil");
         const ativo = document.getElementById
         ("checkBAtivo");

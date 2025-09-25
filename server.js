@@ -28,6 +28,7 @@ server.use(expressEjsLayout);
 //Transforma os dados em req.body
 server.use(express.urlencoded({extended: true}));
 
+server.use(express.json());
 //Conecta as rotas da Home. Por estar em "/", é a página inicial.
 //Tudo que começar com "/" será tratado por routerHome
 server.use("/", routerHome);
