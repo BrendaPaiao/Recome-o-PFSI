@@ -86,4 +86,4 @@ class UsuarioModel {
 }
 
 //Exportando a Model do usuário para ser usada nas controllers.
-module.exports = usuarioModel;
+module.exports = UsuarioModel;

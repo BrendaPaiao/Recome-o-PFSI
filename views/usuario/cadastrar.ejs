@@ -1,1 +1,40 @@
-<h1>Cadastrar novo usuário</h1>
+<script src="">//js do cadastro de usuário </script>
+
+<h1>Cadastro de usuário</h1>
+
+<div>
+    <div class="form-group">
+        <label for="Nome">Nome:</label>
+        <input type="text" class="form-control" id="Nome" />
+    </div>
+    <div class="form-group">
+        <label for="Email">E-mail</label>
+        <input type="email" class="form-control" id="Email" />
+    </div>
+    <div class="form-group">
+        <label for="Senha"> Senha:</label>
+        <input type="password" id="Senha" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="selPerfil">Perfil:</label>
+        <select class="form-control" id="selPerfil">
+            <option value="0">-- Selecione --</option>
+            <% for(let i = 0; i < lista.length; i++) { %>
+                <option value="<%= lista[i].id %>"><%= lista[i].descricao %></option>
+            <% } %> 
+        </select>
+    </div>    
+
+    <div class="form-group">
+        <label for="checkBAtivo">
+            <input type="checkbox" id="checkBAtivo" /> Ativo
+        </label>
+    </div>
+
+    <div>
+        <button class="btn btn-primary" id="btnGravar">Gravar</button>
+        <!-- Aqui é para voltar para o início da gerenciação do cliente. Rota do server.js -->
+        <a href="/usuario" class="btn btn default">Voltar</a>
+    </div>
+</div>
