@@ -5,8 +5,12 @@ class UsuarioController {
 
     //Função para renderizar a view de listar usuários
     async listarView(req, res) {
-        //Renderiza o arquivo listar.ejs que se encontra dentro da dentro da pasta usuario que será criada. usuario(pasta)/lsitar(arquivo.ejs)
-        res.render('usuario/listar');
+        //Renderiza o arquivo listar.ejs que se encontra dentro da dentro da pasta usuario que será criada. usuario(pasta)/listar(arquivo.ejs)
+        let usuario = new UsuarioModel();
+        let lista = await usuario.listar();
+        // Está dentro do for() da view de listar usuários
+        res.render('usuario/listar', {usuarios: lista});
+        // OBS: A controller verifica a view, encontra a lista dentro do for() com o nome "usuarios", e considera ela como a lista que chegou dentro dela através da instância (UsuarioModel). Por isso é {usuarios: lista}.
     }
 
     //Função que serve apenas para renderizar a view de cadastrar usuários
@@ -15,6 +19,7 @@ class UsuarioController {
         let perfil = new PerfilModel();
         //Ainda não existe a função listar
         let lista = await perfil.listar();
+        // Essa é a lista usada no cadastrar.ejs no select do perfil. Sempre encontrada dentro de um for().
         res.render('usuario/cadastrar', {lista: lista});
     }
 

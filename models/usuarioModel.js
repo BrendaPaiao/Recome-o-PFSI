@@ -73,6 +73,30 @@ class UsuarioModel {
         this.#perfilId = perfilId;
     }
 
+    async listar() {
+        const sql = "select * from TB_USUARIO";
+
+        const banco = new Database();
+
+        const rows = await banco.ExecutaComando(sql);
+
+        let listaUsuModel = []
+
+        for(let i = 0; i<rows.length; i++) {
+            let usuario = new UsuarioModel();
+
+            usuario.id = rows[i]["USU_ID"];
+            usuario.nome = rows[i]["USU_NOME"];
+            usuario.email = rows[i]["USU_EMAIL"];
+            usuario.ativo = rows[i]["USU_ATIVO"];
+            usuario.perfilId = rows[i]["PER_ID"];
+
+            listaUsuModel.push(usuario);
+        }
+
+        return listaUsuModel;
+    }
+
     async cadastrar () {
         const sql = "insert into TB_USUARIO (USU_NOME, USU_EMAIL, USU_ATIVO, USU_SENHA, PER_ID) VALUES (?, ?, ?, ?, ?)";
 
@@ -83,6 +107,7 @@ class UsuarioModel {
 
         return result;
     }
+ 
 }
 
 //Exportando a Model do usuário para ser usada nas controllers.

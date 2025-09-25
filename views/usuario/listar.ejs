@@ -1,5 +1,31 @@
 <h1>Usuários cadastrados</h1>
 
 <div>
-    <a class="btn btn-primary" href="/usuario/cadastrar">Novo usuário</a>
+    <div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Nome</td>
+                    <td>Email</td>
+                    <td>Ativo</td>
+                    <td>Perfil</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let i = 0; i<usuarios.length; i++) { %>
+                    <tr>
+                        <td><%= usuarios[i].id %></td>
+                        <td><%= usuarios[i].nome %></td>
+                        <td><%= usuarios[i].email %></td>
+                        <td><%= usuarios[i].ativo %></td>
+                        <td><%= usuarios[i].perfilId %></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+
+    <a class="btn btn-primary" href="/usuario/cadastrar">Cadastrar novo usuário</a>
+
 </div>
