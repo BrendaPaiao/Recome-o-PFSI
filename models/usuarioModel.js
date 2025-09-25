@@ -1,4 +1,4 @@
-
+const Database = require('../utils/database.js');
 //Classe que representa a entidade usuário. 
 //Normalmente usada para mapear os dados do usuário e se comunicar com o banco (via SQL).
 class UsuarioModel {
@@ -71,6 +71,17 @@ class UsuarioModel {
         this.#senha = senha;
         this.#ativo = ativo;
         this.#perfilId = perfilId;
+    }
+
+    async cadastrar () {
+        const sql = "insert into TB_USUARIO (USU_NOME, USU_EMAIL, USU_ATIVO, USU_SENHA, PER_ID) VALUES (?, ?, ?, ?, ?)";
+
+        const valores = [this.#nome, this.#email, this.#ativo, this.#senha, this.#perfilId];
+
+        const banco = new Database();
+        const result = await banco.ExecutaComandoNonQuery(sql, valores);
+
+        return result;
     }
 }
 

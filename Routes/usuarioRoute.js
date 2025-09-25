@@ -15,5 +15,7 @@ router.get("/", ctrl.listarView);
 // Quando o usuário acessar /usuario/cadastrar, chama a função cadastrarView.
 // (normalmente renderiza o formulário de cadastro).
 router.get("/cadastrar", ctrl.cadastrarView);
+// Ainda não foi feita a função na constroller do usuário
+router.post("/cadastrar", ctrl.cadastrar);
 
 module.exports = router;
