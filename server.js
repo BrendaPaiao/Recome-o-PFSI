@@ -3,6 +3,7 @@ const express = require('express');
 //Importa o express-ejs-layouts, que é um middleware
 //(função que roda entre req e res) usado para gerenciar layouts no EJS
 const expressEjsLayout = require('express-ejs-layouts');
+const cookieParser = require('cookie-parser');
 //Importa todas as rotas configuradas em homeRoute (que usam a ControllerHome)
 const routerHome = require("./routes/homeRoute");
 const routerUsuario = require("./routes/usuarioRoute");
