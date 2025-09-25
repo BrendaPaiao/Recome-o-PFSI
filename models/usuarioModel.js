@@ -108,6 +108,15 @@ class UsuarioModel {
         return result;
     }
  
+    async excluir(id) {
+        const slq = "delete from TB_USUARIO where USU_ID = ?";
+        const valores = [id];
+
+        let banco = new Database();
+        const result = await banco.ExecutaComandoNonQuery(sql, valores);
+
+        return result;
+    }
 }
 
 //Exportando a Model do usuário para ser usada nas controllers.

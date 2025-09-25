@@ -25,6 +25,7 @@ Dúvidas que precisam ser mortas por matarem muito tempo na prova:
 * Na controller → é onde você coloca o caminho da view (pasta/arquivo) para o res.render.
 * Ex: res.render("usuario/cadastrar") // views/usuario/cadastrar.ejs
 
+* O deletar é feito na listar.js e adicionado o botão no listar.ejs
 
 
 Início de tudo: Configurar o server.js.

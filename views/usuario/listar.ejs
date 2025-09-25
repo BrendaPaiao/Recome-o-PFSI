@@ -10,6 +10,7 @@
                     <td>Email</td>
                     <td>Ativo</td>
                     <td>Perfil</td>
+                    <td>Ações</td>
                 </tr>
             </thead>
             <tbody>
@@ -20,6 +21,9 @@
                         <td><%= usuarios[i].email %></td>
                         <td><%= usuarios[i].ativo %></td>
                         <td><%= usuarios[i].perfilId %></td>
+                        <td>
+                            <button data-id="<%= usuarios[i].usuarioId %>" class="btn btn-danger btnExcluir"><i class="fas fa-trash"></i></button>
+                        </td>
                     </tr>
                 <% } %>
             </tbody>

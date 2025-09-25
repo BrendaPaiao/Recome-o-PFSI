@@ -51,6 +51,33 @@ class UsuarioController {
             res.send({ok: false, msg: "Faltam informações para inserir o usuário!"});
         }
     }
+
+    async excluir(req, res) {
+        let ok; //Tipo o status (OK, NOT FOUND... etc).
+        let msg;
+
+        let id = req.body.id;
+
+        if(id) {
+            let usuario = new UsuarioModel();
+            const result = await usuario.excluir(id);
+
+            if(result) {
+                ok = true;
+                msg = "Usuário excluído com sucesso!";
+            }
+            else {
+                ok = false;
+                msg = "Erro ao excluir o usuário do banco!";
+            }
+        }
+        else {
+            ok = false;
+            msg = "ID não encontrado para exclusão!";
+        }
+
+        res. send({ok: ok, msg: msg});
+    }
 }
 
 module.exports = UsuarioController;

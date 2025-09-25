@@ -17,5 +17,6 @@ router.get("/", ctrl.listarView);
 router.get("/cadastrar", ctrl.cadastrarView);
 // Ainda não foi feita a função na constroller do usuário
 router.post("/cadastrar", ctrl.cadastrar);
+router.post("excluir", ctrl.excluir);
 
 module.exports = router;
