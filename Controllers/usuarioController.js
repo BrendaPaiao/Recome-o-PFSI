@@ -23,6 +23,15 @@ class UsuarioController {
         res.render('usuario/cadastrar', {lista: lista});
     }
 
+    async alterarView(req, res) {
+        let idUsu = req.params.id;
+        let usuario = new UsuarioModel();
+        usuario = await usuario.buscarPorId(idUsu);
+        let perfil = new PerfilModel();
+        let lista = await perfil.listar();
+        res.render("usuario/alterar", {lista: lista, usuario: usuario});
+    }
+
     //Agora que a view do cadastrar está disponível para ser visualizada, fazemos a parte do cadastro funcionar no backend
     async cadastrar(req, res) {
         //console.log(req.body);
@@ -51,6 +60,30 @@ class UsuarioController {
             res.send({ok: false, msg: "Faltam informações para inserir o usuário!"});
         }
     }
+
+    async alterar(req, res) {
+        let id = req.body.id;
+        let nome = req.body.nome;
+        let email = req.body.email;
+        let senha = req.body.senha;
+        let ativo = req.body.ativo;
+        let perfil = req.body.perfil;
+        if(id && nome && email && senha && perfil) {
+            
+            let usuario = new UsuarioModel(id, nome, email, senha, ativo, perfil);
+            let resultado = await usuario.alterar();
+            if(resultado) {
+                res.send({ok: true, msg: "Usuário alterado com sucesso!"});
+            }
+            else {
+                res.send({ok: false, msg: "Erro ao alterar usuário no banco de dados"});
+            }
+        }
+        else {
+            res.send({ok: false, msg: "Faltam informações para alterar o usuário!"});
+        }
+    }
+
 
     async excluir(req, res) {
         let ok; //Tipo o status (OK, NOT FOUND... etc).
