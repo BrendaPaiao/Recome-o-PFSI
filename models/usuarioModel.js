@@ -109,7 +109,7 @@ class UsuarioModel {
     }
  
     async excluir(id) {
-        const slq = "delete from TB_USUARIO where USU_ID = ?";
+        const sql = "delete from TB_USUARIO where USU_ID = ?";
         const valores = [id];
 
         let banco = new Database();

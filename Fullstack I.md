@@ -81,3 +81,7 @@ Erros registrados:
 3. Erro ao iníciar por falta da instalação do myslq2.
 4. O botão de cadastrar não estava funcionando. Causa: Esqueci de importar o arquivo do JS na view cadastrar.
 5. Falta do "server.use(express.json());" no server.js (deve ficar em cima das rotas, mas nesse caso, nem estava no arquivo server.js).
+6. Usuário existente, mas sistema informando que não existe na hora da exclusão. O erro estava no:
+<td>
+   <button data-id="<%= usuarios[i].usuarioId %>" class="btn btn-danger btnExcluir"><i class="fas fa-trash"></i></button>
+</td>". Na usuarioModel não é usuarioId, mas sim apenas id. E também na usuarioRoute, em que estava sem o "/", na frente da rota excluir. Na usuarioModel a constante "sql", estava escrita errado.

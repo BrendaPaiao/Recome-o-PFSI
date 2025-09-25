@@ -25,7 +25,7 @@ class UsuarioController {
 
     //Agora que a view do cadastrar está disponível para ser visualizada, fazemos a parte do cadastro funcionar no backend
     async cadastrar(req, res) {
-        console.log(req.body);
+        //console.log(req.body);
 
         //Como estará no corpo do formulário de cadastro. Exemplo: "<input type="text" id="nome">"
         let nome = req.body.nome;
