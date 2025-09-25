@@ -75,6 +75,6 @@ Criação de usuários:
 
 
 Erros registrados:
-As pastas devem ter todas as letras minúsculas.
-Erro de sintaxe na usuárioRoute na exportação.
-
+1. As pastas devem ter todas as letras minúsculas.
+2. Erro de sintaxe na usuárioRoute na exportação.
+3. Erro ao iníciar por falta da instalação do myslq2.
